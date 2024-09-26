@@ -21,8 +21,8 @@ const Navigation = () => {
             onReady={() => {
                 isReadyRef.current = true;
             }}>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: false }} />
+            <Stack.Navigator initialRouteName="Splash">
+                <Stack.Screen name="Splash" component={SplashScreen} options={{ headerShown: true }} />
                 <Stack.Screen name="Home" component={RenderTabNavigation} options={{ headerShown: false }} />
                 <Stack.Screen name="Login" component={LoginForm} />
                 <Stack.Screen name="Register" component={RegisterForm} />

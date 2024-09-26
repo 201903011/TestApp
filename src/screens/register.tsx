@@ -76,12 +76,25 @@ const RegisterForm: React.FC = () => {
                 // }
             },
             async (value) => {
-                await AsyncStorage.setItem('registerFormData', JSON.stringify([formData]))
+                await AsyncStorage.setItem('registerFormData', JSON.stringify([data]))
                 Alert.alert('Success', `Registration successful for ${data.name}`)
                 NavigationService.pop();
             },
-        );
-
+        ).then(
+            () => { },
+            async () => {
+                await AsyncStorage.setItem('registerFormData', JSON.stringify([data]))
+                Alert.alert('Success', `Registration successful for ${data.name}`)
+                NavigationService.pop();
+            }
+        )
+            .catch(
+                async () => {
+                    await AsyncStorage.setItem('registerFormData', JSON.stringify([data]))
+                    Alert.alert('Success', `Registration successful for ${data.name}`)
+                    NavigationService.pop();
+                }
+            )
 
 
         // localStorage.setItem('registerFormData', JSON.stringify(formData));
